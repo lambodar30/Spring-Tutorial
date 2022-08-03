@@ -22,7 +22,7 @@ public class MyController {
 	
 	@GetMapping("/welcome")
 	public String  home() {
-		
+		System.out.print("Success work");
 		return "Hello";
 	}
 	
