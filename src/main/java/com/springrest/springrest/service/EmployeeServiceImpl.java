@@ -2,10 +2,12 @@ package com.springrest.springrest.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.springrest.springrest.Error.ResourceNotFoundException;
 import com.springrest.springrest.dao.EmployeeDao;
 import com.springrest.springrest.entities.Employee;
 
@@ -39,7 +41,10 @@ public class EmployeeServiceImpl implements EmployeeService{
 
 	@Override
 	public Employee getAllEmployee(long employeeId) {
-		return employeeDao.getOne(employeeId);
+		System.out.print("Success");
+		//Employee emp=employeeDao.findById(employeeId);
+		return employeeDao.findById(employeeId).orElseThrow(() -> new ResourceNotFoundException("Employee not exist with id :" + employeeId));
+		//return employeeDao.getOne(employeeId);
 		
 		/*
 		 * // TODO Auto-generated method stub Employee e=null; for (Employee employee :
@@ -51,6 +56,21 @@ public class EmployeeServiceImpl implements EmployeeService{
 	@Override
 	public Employee addEmployee(long l) {
 		// TODO Auto-generated method stub
+		System.out.print("Success");
+		return null;
+	}
+	
+	public Employee updateEmployee(Employee emp) {
+		//employeeDao.save(emp);
+		//return emp;
+		System.out.print("Success");
+		return employeeDao.save(emp);
+	}
+
+	@Override
+	public Employee deleteEmployee(Employee employee) {
+		// TODO Auto-generated method stub
+		System.out.print("Success");
 		return null;
 	}
 
