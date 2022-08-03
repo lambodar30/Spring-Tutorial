@@ -1,22 +1,32 @@
 package com.springrest.springrest.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
-
+@Entity
 public class Employee {
-	@Autowired
+
+	@Id
 	private long id;
 	private String title;
-	private String desc;
+	private String description;
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
 	public Employee() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Employee(long id, String title, String desc) {
+	public Employee(long id, String title, String description) {
 		super();
 		this.id = id;
 		this.title = title;
-		this.desc = desc;
+		this.description = description;
 	}
 	public long getId() {
 		return id;
@@ -30,17 +40,12 @@ public class Employee {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getDesc() {
-		return desc;
-	}
-	public void setDesc(String desc) {
-		this.desc = desc;
-	}
+	
 	
 	
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", title=" + title + ", desc=" + desc + "]";
+		return "Employee [id=" + id + ", title=" + title + ", description=" + description + "]";
 	}
 
 }
